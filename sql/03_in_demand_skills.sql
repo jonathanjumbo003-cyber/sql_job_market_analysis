@@ -8,12 +8,13 @@ SELECT
   skills.skills AS skill_name,
   COUNT(job_postings.job_id) AS demand_count
 FROM luke_practice.job_postings_fact AS job_postings
-LEFT JOIN luke_practice.skills_job_dim AS skill_to_job
+INNER JOIN luke_practice.skills_job_dim AS skill_to_job
   ON job_postings.job_id = skill_to_job.job_id
-LEFT JOIN luke_practice.skills_dim AS skills
+INNER JOIN luke_practice.skills_dim AS skills
   ON skill_to_job.skill_id = skills.skill_id
 WHERE
-  job_postings.job_location IS NOT NULL
+  job_postings.job_location IS NOT NULL AND
+  job_postings.job_title_short = 'Data Analyst'
 GROUP BY
   skill_name
 ORDER BY
