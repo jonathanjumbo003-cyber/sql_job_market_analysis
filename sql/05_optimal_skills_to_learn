@@ -1,0 +1,29 @@
+/* Question 5: what are the optimal skills to learn. These are skills that are in high demand
+and are high paying.
+- I will be focused on my field as a data analyst.
+- I will only consider skills that has a salary indicated.
+- I will also consider remote jobs.
+Why do this? it allows us see the skill that has the best return. skills most employers are looking. */
+
+SELECT
+  skills.skills AS skill_name,
+  COUNT(job_postings.job_id) AS demand_count,
+  ROUND(AVG(job_postings.salary_year_avg), 2) AS avg_salary
+FROM 
+  luke_practice.job_postings_fact AS job_postings
+INNER JOIN `luke_practice.skills_job_dim` AS skill_to_job
+  ON job_postings.job_id = skill_to_job.job_id
+INNER JOIN `luke_practice.skills_dim`AS skills
+  ON skill_to_job.skill_id = skills.skill_id
+WHERE
+  (job_postings.job_title_short = 'Data Analyst' AND job_postings.job_location = 'Anywhere') AND
+  job_postings.salary_year_avg IS NOT NULL
+GROUP BY
+  skills.skills
+HAVING
+  demand_count > 10
+ORDER BY
+  demand_count DESC,
+  avg_salary DESC
+
+Add Query 5: Optimal Skills For Data Analyst.
