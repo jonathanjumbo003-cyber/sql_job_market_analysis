@@ -66,9 +66,6 @@ ORDER BY
   job_postings.salary_year_avg DESC
   LIMIT 10
   ```
-### 1. Top Paying Data Analyst Jobs
-
-To evaluate the ceiling of the job market, I queried remote Data Analyst positions sorted by annual average salary. 
 
 * **SQL Query File:** [`sql/01_top_paying_jobs.sql`](sql/01_top_paying_jobs.sql)
 
@@ -92,6 +89,7 @@ To evaluate the ceiling of the job market, I queried remote Data Analyst positio
 * **The $650k Outlier:** Mantys tops the chart with an extraordinary $650,000 salary for a "Data Analyst" title, demonstrating that certain high-equity startup roles significantly skew upper salary ranges.
 * **Leadership Commands Top Dollar:** High-earning positions heavily cluster around **Director** and **Principal** level roles (ranging from $186,000 to $336,500 at major firms like Meta, AT&T, and SmartAsset).
 * **100% Remote Potential:** All top 10 postings offer full-time remote options ("Anywhere"), confirming that top-tier compensation isn't restricted by physical geographic location.
+
 ## What I learned
 
 ## Conclusion
