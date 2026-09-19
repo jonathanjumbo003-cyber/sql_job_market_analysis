@@ -121,12 +121,13 @@ To understand what tools top-paying roles demand, I joined the highest-earning j
 | **Azure** | **2** | AT&T, Inclusively |
 | **Power BI** | **2** | AT&T, Inclusively |
 
-![Top Paying Job Skills](assets/2_top_paying_job_skills.png)
+![Top Paying Job Skills](asstes/top_paying_data_analyst_skills.png)
 
 #### Key Insights:
 * **The Core Stack (SQL + Python):** SQL (80% presence) and Python (70% presence) form the backbone of top-earning Data Analyst job specs.
 * **Visualization Preference:** Tableau leads the high-earning bracket with 6 mentions, outperforming Power BI (2 mentions) in these specific top-tier postings.
 * **Cloud & Advanced Analytics Stack:** High-paying roles frequently request cloud databases (**Snowflake**, **AWS**, **Azure**) and Python libraries (**Pandas**, **NumPy**), showing that high compensation is tied to handling modern cloud infrastructure.
+
 ## What I learned
 
 ## Conclusion
