@@ -159,6 +159,31 @@ ORDER BY
 * **Visualization Preference:** Tableau leads the high-earning bracket with 6 mentions, outperforming Power BI (2 mentions) in these specific top-tier postings.
 * **Cloud & Advanced Analytics Stack:** High-paying roles frequently request cloud databases (**Snowflake**, **AWS**, **Azure**) and Python libraries (**Pandas**, **NumPy**), showing that high compensation is tied to handling modern cloud infrastructure.
 
+### 3. Top Demanded Skills
+
+To identify the most in-demand skills for Data Analysts across the entire job market, I aggregated skill mentions across all job postings to see which tools employers search for most frequently.
+
+* **SQL Query File:** [`sql/03_in_demand_skills.sql`](sql/3_in_demand_skills.sql)
+
+#### Top 10 Most Demanded Skills
+
+| Rank | Skill | Demand Count | Market Focus |
+| :---: | :--- | :---: | :--- |
+| **1** | **SQL** | **92,470** | Database Querying & Data Extraction |
+| **2** | **Excel** | **66,901** | Core Spreadsheets & Quick Analysis |
+| **3** | **Python** | **57,238** | Data Science, Scripting & Automation |
+| **4** | **Tableau** | **46,469** | Business Intelligence & Dashboarding |
+| **5** | **Power BI** | **39,419** | Enterprise Reporting & Visualizations |
+| **6** | **R** | **30,038** | Statistical Analysis |
+| **7** | **SAS** | **28,042** | Enterprise Analytics |
+| **8** | **PowerPoint** | **13,816** | Stakeholder Presentations |
+| **9** | **Word** | **13,577** | Documentation & Reporting |
+| **10** | **SAP** | **11,289** | Enterprise Resource Planning |
+
+#### Key Insights:
+* **The Foundation Trio:** **SQL**, **Excel**, and **Python** represent the core foundational stack every Data Analyst needs to master.
+* **SQL's Dominance:** SQL appears in over 92,000 job postings—nearly 40% more listings than second-place Excel.
+* **BI Tools High Demand:** Both **Tableau** and **Power BI** command massive market presence, proving that data storytelling and visualization are mandatory requirements across organizations.
 ### 4. Top Paying Skills
 
 To find the highest-paying technical skills for Data Analysts, I calculated the average annual salary associated with each skill across postings with reported salary data.
