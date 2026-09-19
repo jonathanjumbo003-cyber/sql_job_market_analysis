@@ -159,6 +159,51 @@ ORDER BY
 * **Visualization Preference:** Tableau leads the high-earning bracket with 6 mentions, outperforming Power BI (2 mentions) in these specific top-tier postings.
 * **Cloud & Advanced Analytics Stack:** High-paying roles frequently request cloud databases (**Snowflake**, **AWS**, **Azure**) and Python libraries (**Pandas**, **NumPy**), showing that high compensation is tied to handling modern cloud infrastructure.
 
+### 4. Top Paying Skills
+
+To find the highest-paying technical skills for Data Analysts, I calculated the average annual salary associated with each skill across postings with reported salary data.
+
+```sql
+SELECT
+  skills.skills As skill_name,
+  ROUND(AVG(job_postings.salary_year_avg), 2) AS avg_salary
+FROM
+  luke_practice.job_postings_fact AS job_postings
+INNER JOIN `luke_practice.skills_job_dim` AS skill_to_job
+  ON job_postings.job_id = skill_to_job.job_id
+INNER JOIN `luke_practice.skills_dim` AS skills
+  ON skill_to_job.skill_id = skills.skill_id
+WHERE
+  job_postings.job_title_short = 'Data Analyst' AND
+  salary_year_avg IS NOT NULL
+GROUP BY
+  skills.skills
+ORDER BY
+  avg_salary DESC
+LIMIT 20;
+```
+* **SQL Query File:** [`sql/04_top_skills_based_on_salary.sql`](sql/04_top_skills_based_on_salary.sql)
+
+#### Top 10 Highest-Paying Skills
+
+| Rank | Skill | Average Annual Salary | Primary Tech Focus |
+| :---: | :--- | :---: | :--- |
+| **1** | **SVN** | **$400,000** | Legacy Version Control *(Niche Outlier)* |
+| **2** | **Solidity** | **$179,000** | Smart Contracts / Blockchain |
+| **3** | **Couchbase** | **$160,515** | NoSQL Database |
+| **4** | **DataRobot** | **$155,486** | AutoML & Machine Learning |
+| **5** | **Golang** | **$155,000** | Backend Programming |
+| **6** | **MXNet** | **$149,000** | Deep Learning Framework |
+| **7** | **dplyr** | **$147,633** | R Data Manipulation |
+| **8** | **VMware** | **$147,500** | Virtualization & Cloud |
+| **9** | **Terraform** | **$146,734** | Infrastructure as Code |
+| **10** | **Twilio** | **$138,500** | API Infrastructure |
+
+#### Key Insights:
+* **Beware of Niche Salary Skew:** Tools like **SVN** ($400,000) rank #1 due to small sample sizes where a single high-paying listing skews the average. This proves why pure salary rankings must be cross-referenced with job demand.
+* **AI & Machine Learning Premium:** Machine learning frameworks (**DataRobot**, **MXNet**, **PyTorch**, **TensorFlow**) consistently yield average salaries above $120,000.
+* **DevOps & Data Engineering Overlap:** High pay strongly correlates with tools bridging analytics and software engineering (**Golang**, **Terraform**, **Kafka**, **GitLab**).
+
 ## What I learned
 
 ## Conclusion
