@@ -154,8 +154,6 @@ ORDER BY
 | **Azure** | **2** | AT&T, Inclusively |
 | **Power BI** | **2** | AT&T, Inclusively |
 
-![Top Paying Job Skills](asstes/top_paying_data_analyst_skills.png)
-
 #### Key Insights:
 * **The Core Stack (SQL + Python):** SQL (80% presence) and Python (70% presence) form the backbone of top-earning Data Analyst job specs.
 * **Visualization Preference:** Tableau leads the high-earning bracket with 6 mentions, outperforming Power BI (2 mentions) in these specific top-tier postings.
