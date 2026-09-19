@@ -46,6 +46,52 @@ Every query in this section explores the overall potential of the Data Analyst j
 ### 1. Top Paying Data Analyst Jobs
 
 To identify the highest-earning opportunities, I filtered the dataset specifically for remote **Data Analyst** roles while excluding listings with missing compensation data (`WHERE salary_year_avg IS NOT NULL`). I selected the relevant job titles and salary figures, sorted the results from highest to lowest pay, and limited the output to the top 10 positions.
+
+```sql
+SELECT
+  job_postings.job_id,
+  job_postings.job_title,
+  companies.name AS company_name,
+  job_postings.job_location,
+  job_postings.job_schedule_type,
+  job_postings.salary_year_avg,
+  job_postings.job_posted_date
+FROM luke_practice.job_postings_fact AS job_postings
+LEFT JOIN luke_practice.company_dim AS companies
+  ON job_postings.company_id = companies.company_id
+WHERE
+  (job_postings.job_location = 'Anywhere' AND job_postings.job_title_short = 'Data Analyst') AND
+  job_postings.salary_year_avg IS NOT NULL
+ORDER BY
+  job_postings.salary_year_avg DESC
+  LIMIT 10
+  ```
+### 1. Top Paying Data Analyst Jobs
+
+To evaluate the ceiling of the job market, I queried remote Data Analyst positions sorted by annual average salary. 
+
+* **SQL Query File:** [`sql/01_top_paying_jobs.sql`](sql/01_top_paying_jobs.sql)
+
+#### Top 10 Highest-Paying Remote Roles
+
+| Job Title | Company | Annual Salary | Location |
+| :--- | :--- | :---: | :---: |
+| **Data Analyst** | Mantys | $650,000 | Anywhere (Remote) |
+| **Director of Analytics** | Meta | $336,500 | Anywhere (Remote) |
+| **Associate Director - Data Insights** | AT&T | $255,830 | Anywhere (Remote) |
+| **Data Analyst, Marketing** | Pinterest | $232,423 | Anywhere (Remote) |
+| **Data Analyst (Hybrid/Remote)** | UCLA Health | $217,000 | Anywhere (Remote) |
+| **Principal Data Analyst** | SmartAsset | $205,000 | Anywhere (Remote) |
+| **Director, Data Analyst** | Inclusively | $189,309 | Anywhere (Remote) |
+| **Principal Data Analyst, AV Performance** | Motional | $189,000 | Anywhere (Remote) |
+| **Principal Data Analyst** | SmartAsset | $186,000 | Anywhere (Remote) |
+| **ERM Data Analyst** | Get It Recruit | $184,000 | Anywhere (Remote) |
+
+
+#### Key Insights:
+* **The $650k Outlier:** Mantys tops the chart with an extraordinary $650,000 salary for a "Data Analyst" title, demonstrating that certain high-equity startup roles significantly skew upper salary ranges.
+* **Leadership Commands Top Dollar:** High-earning positions heavily cluster around **Director** and **Principal** level roles (ranging from $186,000 to $336,500 at major firms like Meta, AT&T, and SmartAsset).
+* **100% Remote Potential:** All top 10 postings offer full-time remote options ("Anywhere"), confirming that top-tier compensation isn't restricted by physical geographic location.
 ## What I learned
 
 ## Conclusion
