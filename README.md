@@ -100,10 +100,33 @@ The analysis simply shows that some of the highest-paying postings are associate
 
 The **Mantys** posting is a clear outlier in this dataset, with a salary of **$650,000**, far above the other postings. However, because it is an **outlier**, it should be interpreted carefully rather than used as evidence of a typical Data Analyst salary.
 
-### 2. Skills Required For This Top Paying Jobs
+### 2. Top Paying Job Skills
 
-Having gotten this top paying remote jobs, one can;t help but wonder why are these jobs paying high. this will lead us to this nesxt question
+To understand what tools top-paying roles demand, I joined the highest-earning job listings with the skills repository to see which technologies are most frequently required by top employers.
 
+* **SQL Query File:** [`sql/02_top_paying_job_skills.sql`](sql/02_top_paying_job_skills.sql)
+
+#### Most Requested Skills in Top-Paying Roles
+
+| Skill | Mentions in Top Roles | Key Employers Requesting |
+| :--- | :---: | :--- |
+| **SQL** | **8** | AT&T, Pinterest, SmartAsset, Inclusively, Motional, UCLA Health |
+| **Python** | **7** | AT&T, Pinterest, SmartAsset, Inclusively, Motional, Get It Recruit |
+| **Tableau** | **6** | AT&T, Pinterest, SmartAsset, Inclusively, UCLA Health |
+| **R** | **4** | AT&T, Pinterest, Motional, Get It Recruit |
+| **Pandas** | **3** | AT&T, SmartAsset |
+| **Excel** | **3** | AT&T, SmartAsset |
+| **Snowflake** | **3** | SmartAsset, Inclusively |
+| **AWS** | **2** | AT&T, Inclusively |
+| **Azure** | **2** | AT&T, Inclusively |
+| **Power BI** | **2** | AT&T, Inclusively |
+
+![Top Paying Job Skills](assets/2_top_paying_job_skills.png)
+
+#### Key Insights:
+* **The Core Stack (SQL + Python):** SQL (80% presence) and Python (70% presence) form the backbone of top-earning Data Analyst job specs.
+* **Visualization Preference:** Tableau leads the high-earning bracket with 6 mentions, outperforming Power BI (2 mentions) in these specific top-tier postings.
+* **Cloud & Advanced Analytics Stack:** High-paying roles frequently request cloud databases (**Snowflake**, **AWS**, **Azure**) and Python libraries (**Pandas**, **NumPy**), showing that high compensation is tied to handling modern cloud infrastructure.
 ## What I learned
 
 ## Conclusion
