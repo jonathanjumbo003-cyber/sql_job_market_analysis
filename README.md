@@ -84,11 +84,25 @@ ORDER BY
 | **Principal Data Analyst** | SmartAsset | $186,000 | Anywhere (Remote) |
 | **ERM Data Analyst** | Get It Recruit | $184,000 | Anywhere (Remote) |
 
-
 #### Key Insights:
 * **The $650k Outlier:** Mantys tops the chart with an extraordinary $650,000 salary for a "Data Analyst" title, demonstrating that certain high-equity startup roles significantly skew upper salary ranges.
 * **Leadership Commands Top Dollar:** High-earning positions heavily cluster around **Director** and **Principal** level roles (ranging from $186,000 to $336,500 at major firms like Meta, AT&T, and SmartAsset).
 * **100% Remote Potential:** All top 10 postings offer full-time remote options ("Anywhere"), confirming that top-tier compensation isn't restricted by physical geographic location.
+
+
+![Top Paying Roles](asstes/top_10_data_analyst_jobs.png)
+*The graph below visualizes the top 10 highest-paying remote Data Analyst job postings identified through my SQL query. The visualization was generated with ChatGPT using the results returned by the query.*
+
+
+These are the top-paying remote Data Analyst job postings based on our data. However, as explained earlier, this **should not** be taken as a general representation of how much a **remote Data Analyst earns**.
+
+The analysis simply shows that some of the highest-paying postings are associated with senior and leadership-level roles, suggesting that compensation tends to increase as the level of responsibility and decision-making within a company increases.
+
+The **Mantys** posting is a clear outlier in this dataset, with a salary of **$650,000**, far above the other postings. However, because it is an **outlier**, it should be interpreted carefully rather than used as evidence of a typical Data Analyst salary.
+
+### 2. Skills Required For This Top Paying Jobs
+
+Having gotten this top paying remote jobs, one can;t help but wonder why are these jobs paying high. this will lead us to this nesxt question
 
 ## What I learned
 
