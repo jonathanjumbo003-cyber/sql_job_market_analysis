@@ -203,6 +203,7 @@ LIMIT 10;
 * **The Foundation Trio:** **SQL**, **Excel**, and **Python** represent the core foundational stack every Data Analyst needs to master.
 * **SQL's Dominance:** SQL appears in over 92,000 job postings—nearly 40% more listings than second-place Excel.
 * **BI Tools High Demand:** Both **Tableau** and **Power BI** command massive market presence, proving that data storytelling and visualization are mandatory requirements across organizations.
+
 ### 4. Top Paying Skills
 
 To find the highest-paying technical skills for Data Analysts, I calculated the average annual salary associated with each skill across postings with reported salary data.
@@ -248,6 +249,79 @@ LIMIT 20;
 * **AI & Machine Learning Premium:** Machine learning frameworks (**DataRobot**, **MXNet**, **PyTorch**, **TensorFlow**) consistently yield average salaries above $120,000.
 * **DevOps & Data Engineering Overlap:** High pay strongly correlates with tools bridging analytics and software engineering (**Golang**, **Terraform**, **Kafka**, **GitLab**).
 
-## What I learned
+### 5. Optimal Skills (High Demand & High Pay)
+
+To identify the most "optimal" skills for Data Analysts—balancing job stability (high demand) with top earning power (high average salary)—I analyzed skills that rank highly across both metrics.
+
+```sql
+SELECT
+  skills.skills AS skill_name,
+  COUNT(job_postings.job_id) AS demand_count,
+  ROUND(AVG(job_postings.salary_year_avg), 2) AS avg_salary
+FROM 
+  luke_practice.job_postings_fact AS job_postings
+INNER JOIN `luke_practice.skills_job_dim` AS skill_to_job
+  ON job_postings.job_id = skill_to_job.job_id
+INNER JOIN `luke_practice.skills_dim`AS skills
+  ON skill_to_job.skill_id = skills.skill_id
+WHERE
+  (job_postings.job_title_short = 'Data Analyst' AND job_postings.job_location = 'Anywhere') AND
+  job_postings.salary_year_avg IS NOT NULL
+GROUP BY
+  skills.skills
+HAVING
+  demand_count > 10
+ORDER BY
+  demand_count DESC,
+  avg_salary DESC
+```
+* **SQL Query File:** [`sql/05_optimal_skills_to_learn.sql`](sql/05_optimal_skills_to_learn.sql)
+
+#### Top Optimal Skills for Data Analysts
+
+| Rank | Skill | Demand Count | Average Annual Salary | Strategic Takeaway |
+| :---: | :--- | :---: | :---: | :--- |
+| **1** | **SQL** | **398** | **$97,237** | Universal Baseline Requirement |
+| **2** | **Excel** | **256** | **$87,288** | Core Analytics Tool |
+| **3** | **Python** | **236** | **$101,397** | High-Demand & Six-Figure Sweet Spot |
+| **4** | **Tableau** | **230** | **$99,288** | Top Visualization Leader |
+| **5** | **R** | **148** | **$100,499** | Advanced Statistical Analysis |
+| **6** | **SAS** | **126** | **$98,902** | Enterprise Analytics Standard |
+| **7** | **Power BI** | **110** | **$97,431** | Enterprise Dashboarding |
+| **8** | **Looker** | **49** | **$103,795** | High-Paying Modern BI Platform |
+| **9** | **Snowflake** | **37** | **$112,948** | High-Paying Cloud Data Warehouse |
+| **10** | **Azure** | **34** | **$111,225** | High-Paying Cloud Infrastructure |
+
+#### Key Insights:
+* **The High-Value Sweet Spot:** **Python** ($101,397) and **Tableau** ($99,288) offer the highest return on investment, blending large job availability with top-tier compensation.
+* **Cloud & Warehouse Premium:** Cloud platforms (**Snowflake**, **Azure**, **AWS**) consistently command salaries above $108,000, presenting high-upside specialization targets.
+* **Skill Stacking Necessity:** While **Excel** offers high demand (256 listings), its average salary ($87,288) is the lowest among top tools, proving that pairing spreadsheets with SQL and Python is essential for maximizing market value.
+
+## What I Learned
+
+Throughout this project (guided by Luke Barousse's course), I didn't just write code—I completely leveled up my technical workflow and analytical thinking. Here’s what really stuck with me:
+
+* **Broke the SQL Phobia:** I used to think SQL was intimidating and overly complex. Once I jumped into BigQuery and started building real queries, the fear completely vanished. It’s actually intuitive once you break down the logic step-by-step.
+* **Advanced Query Building:** Moved far beyond basic `SELECT` statements. I regularly used **CTEs (Common Table Expressions)**, **subqueries**, and proper join techniques to solve multi-layered data questions without messy code.
+* **Massive Time Savings:** Analyzing thousands of job postings showed me how fast SQL really is. Instead of spending hours trying to clean and reshape massive datasets manually, a well-structured query got me clean results in seconds.
+* **Clean Syntax & Code Architecture:** Focused heavily on formatting, indentations, and syntax layout so my `.sql` files are readable, modular, and easy for any engineer or recruiter to follow.
+
+At the end of the day, this project helped me refine my craft, level up my technical wizardry, and—most importantly—was an absolute blast to build!
 
 ## Conclusion
+
+### 💡 Key Insights
+
+1. **Top Paying Jobs:** Remote Data Analyst roles reach incredible compensation ceilings, but high earnings are heavily concentrated in senior leadership and Principal-level positions ($180,000–$330,000+).
+2. **Skills for High Earners:** SQL (80%) and Python (70%) form the non-negotiable technical baseline for top-paying positions, with Tableau leading the pack for visual analytics.
+3. **Most Demanded Skills:** Looking at the overall global market, SQL (92,000+ postings) and Excel (66,000+ postings) are the absolute top two entry requirements across all industries.
+4. **Highest Paying Technical Skills:** Niche AI/ML frameworks (PyTorch, DataRobot) and cloud/DevOps tools command top-tier compensation—though extreme outliers like SVN prove why demand must always be factored in.
+5. **Optimal High-Value Skills:** Python and Tableau hit the ultimate sweet spot by combining high job market demand with $100,000+ average salary potential, while cloud platforms like Snowflake offer high-upside targets.
+
+---
+
+### 💭 Closing Thoughts
+
+This project was an absolute blast to build. I started out as a novice, spending time refining each technique step-by-step from the videos and working through various real-world scenarios along the way. 
+
+With every query I wrote and every error I fixed, my confidence grew—and I genuinely fell in love with SQL. I highly recommend this hands-on approach to any beginner looking to build real projects. You’ll definitely level up your technical skills and enjoy the process!
